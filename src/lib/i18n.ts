@@ -149,9 +149,9 @@ export const translations = {
 
     // Admin Auth
     adminLoginTitle: 'Administrator Sign In',
-    adminLoginSubtitle: 'Secure portal for authorized Blood Bank managers (admin1 - admin10)',
+    adminLoginSubtitle: 'Secure portal for authorized Blood Bank administrators',
     usernameLabel: 'Admin Username',
-    usernamePlaceholder: 'e.g. admin1, admin2, ...',
+    usernamePlaceholder: 'Enter your admin username',
     passwordLabel: 'Password',
     passwordPlaceholder: 'Enter your password',
     showPassword: 'Show',
@@ -376,9 +376,9 @@ export const translations = {
 
     // Admin Auth
     adminLoginTitle: 'অ্যাডমিনিস্ট্রেটর লগইন',
-    adminLoginSubtitle: 'ব্লাড ব্যাংক পরিচালনার জন্য অনুমোদিত অ্যাডমিন পোর্টাল (admin1 - admin10)',
+    adminLoginSubtitle: 'ব্লাড ব্যাংক পরিচালনার জন্য অনুমোদিত অ্যাডমিন পোর্টাল',
     usernameLabel: 'ইউজারনেম',
-    usernamePlaceholder: 'যেমন: admin1, admin2, ...',
+    usernamePlaceholder: 'আপনার অ্যাডমিন ইউজারনেম লিখুন',
     passwordLabel: 'পাসওয়ার্ড',
     passwordPlaceholder: 'আপনার পাসওয়ার্ড লিখুন',
     showPassword: 'দেখান',

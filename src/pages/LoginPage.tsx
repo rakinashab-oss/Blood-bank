@@ -9,7 +9,6 @@ import {
   Lock, 
   User, 
   AlertCircle, 
-  Info,
   Loader2 
 } from 'lucide-react';
 
@@ -58,13 +57,6 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  // Quick fill helper for testing
-  const fillSampleAdmin = (uname: string) => {
-    setUsername(uname);
-    setPassword('admin1234');
-    setError(null);
-  };
-
   return (
     <div className="max-w-md mx-auto px-4 py-12 sm:py-20">
       <div className="bg-white rounded-3xl border border-charcoal-200 p-6 sm:p-8 shadow-md space-y-6">
@@ -80,27 +72,6 @@ export const LoginPage: React.FC = () => {
           <p className="text-xs sm:text-sm text-charcoal-500">
             {t.adminLoginSubtitle}
           </p>
-        </div>
-
-        {/* Initial Credentials Notice as required by prompt */}
-        <div className="p-3.5 rounded-xl bg-charcoal-50 border border-charcoal-200 text-xs text-charcoal-600 flex items-start gap-2">
-          <Info className="w-4 h-4 text-blood-700 flex-shrink-0 mt-0.5" />
-          <div className="space-y-1">
-            <p className="font-semibold text-charcoal-800">{t.initialPasswordNotice}</p>
-            <div className="flex flex-wrap gap-1 pt-1">
-              {['admin1', 'admin2', 'admin3', 'admin4'].map((acc) => (
-                <button
-                  key={acc}
-                  type="button"
-                  onClick={() => fillSampleAdmin(acc)}
-                  className="px-2 py-0.5 rounded bg-white border border-charcoal-300 font-mono text-[11px] hover:border-blood-600 text-charcoal-700"
-                >
-                  {acc}
-                </button>
-              ))}
-              <span className="text-charcoal-400 text-[11px] self-center">... admin10</span>
-            </div>
-          </div>
         </div>
 
         {/* Error Alert */}
