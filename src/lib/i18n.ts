@@ -4,7 +4,7 @@ import { toBengaliNumerals } from './availability';
 export const translations = {
   en: {
     // Brand
-    brandName: 'Blood Bank',
+    brandName: 'Blood Lagbe',
     tagline: 'Donate Blood, Save Lives.',
     developerCredit: 'Developed by Rakin Ashab',
     devPhone: '01936106621',
@@ -144,12 +144,12 @@ export const translations = {
     devEmailLabel: 'Email Address',
     callDeveloper: 'Call Developer',
     emailDeveloper: 'Send Email',
-    feedbackPrompt: 'Found a problem or have a suggestion? Contact us and help improve Blood Bank.',
+    feedbackPrompt: 'Found a problem or have a suggestion? Contact us and help improve Blood Lagbe.',
     emergencyNote: 'For emergency donor support, please browse the directory and call available donors directly.',
 
     // Admin Auth
     adminLoginTitle: 'Administrator Sign In',
-    adminLoginSubtitle: 'Secure portal for authorized Blood Bank administrators',
+    adminLoginSubtitle: 'Secure portal for authorized Blood Lagbe administrators',
     usernameLabel: 'Admin Username',
     usernamePlaceholder: 'Enter your admin username',
     passwordLabel: 'Password',
@@ -230,7 +230,7 @@ export const translations = {
 
   bn: {
     // Brand
-    brandName: 'ব্লাড ব্যাংক',
+    brandName: 'ব্লাড লাগবে',
     tagline: 'রক্ত দিন, জীবন বাঁচান।',
     developerCredit: 'ডেভেলপ করেছেন: রাকীন আশহাব',
     devPhone: '০১৯৩৬১০৬৬২১',
@@ -371,12 +371,12 @@ export const translations = {
     devEmailLabel: 'ইমেইল ঠিকানা',
     callDeveloper: 'কল করুন',
     emailDeveloper: 'ইমেইল করুন',
-    feedbackPrompt: 'কোনো সমস্যা বা পরামর্শ থাকলে আমাদের সাথে যোগাযোগ করুন।',
+    feedbackPrompt: 'কোনো সমস্যা বা পরামর্শ থাকলে আমাদের সাথে যোগাযোগ করে ব্লাড লাগবে উন্নত করতে সহায়তা করুন।',
     emergencyNote: 'জরুরি রক্তের প্রয়োজনে দয়া করে পাবলিক ডিরেক্টরি থেকে সরাসরি উপযুক্ত ডোনারকে কল করুন।',
 
     // Admin Auth
     adminLoginTitle: 'অ্যাডমিনিস্ট্রেটর লগইন',
-    adminLoginSubtitle: 'ব্লাড ব্যাংক পরিচালনার জন্য অনুমোদিত অ্যাডমিন পোর্টাল',
+    adminLoginSubtitle: 'ব্লাড লাগবে পরিচালনার জন্য অনুমোদিত অ্যাডমিন পোর্টাল',
     usernameLabel: 'ইউজারনেম',
     usernamePlaceholder: 'আপনার অ্যাডমিন ইউজারনেম লিখুন',
     passwordLabel: 'পাসওয়ার্ড',

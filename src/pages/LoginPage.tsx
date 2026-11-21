@@ -149,7 +149,7 @@ export const LoginPage: React.FC = () => {
         </form>
 
         <p className="text-center text-[11px] text-charcoal-400">
-          Blood Bank Security Architecture — Row Level Security (RLS) Enforced
+          Blood Lagbe Security Architecture — Row Level Security (RLS) Enforced
         </p>
 
       </div>

@@ -19,7 +19,7 @@ export const ReportProblemPage: React.FC = () => {
   const handleSendForm = (e: React.FormEvent) => {
     e.preventDefault();
     const mailtoUrl = `mailto:${t.devEmail}?subject=${encodeURIComponent(
-      subject || 'Blood Bank Feedback / Problem Report'
+      subject || 'Blood Lagbe Feedback / Problem Report'
     )}&body=${encodeURIComponent(message)}`;
     window.location.href = mailtoUrl;
     setSubmitted(true);
@@ -130,7 +130,7 @@ export const ReportProblemPage: React.FC = () => {
           {submitted && (
             <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-emerald-600" />
-              <span>Email client invoked. Thank you for helping improve Blood Bank!</span>
+              <span>Email client invoked. Thank you for helping improve Blood Lagbe!</span>
             </div>
           )}
 
