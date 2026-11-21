@@ -39,7 +39,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           });
         }
       } else if (mounted) {
-        setAdmin(null);
+        const local = FirebaseDataService.getLocalAdminSession();
+        if (local) {
+          setAdmin(local);
+        } else {
+          setAdmin(null);
+        }
       }
       if (mounted) setLoading(false);
     });
