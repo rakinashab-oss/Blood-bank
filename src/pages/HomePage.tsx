@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { DataService, isSupabaseConfigured } from '../lib/supabase';
+import { DataService } from '../lib/supabase';
 import { BloodGroup, DonorWithAvailability } from '../types';
 import { toBengaliNumerals } from '../lib/availability';
 import { 
@@ -59,21 +59,6 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className="space-y-12 sm:space-y-16 pb-16">
-      
-      {/* Supabase status indicator banner for transparency */}
-      {!isSupabaseConfigured && (
-        <div className="bg-amber-50 border-b border-amber-200 text-amber-900 px-4 py-2 text-xs">
-          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-            <span className="flex items-center gap-1.5 font-medium">
-              <span className="w-2 h-2 rounded-full bg-amber-500 animate-ping" />
-              <span>Offline / Local Storage Mode Active. Ready for Supabase connection via .env</span>
-            </span>
-            <Link to="/report" className="underline font-semibold hover:text-amber-950">
-              Setup Docs
-            </Link>
-          </div>
-        </div>
-      )}
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-b from-blood-50/70 via-white to-[#fbfbfc] pt-8 sm:pt-16 pb-12 sm:pb-20 border-b border-charcoal-200">

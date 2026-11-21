@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { AdminProfile } from '../types';
-import { DataService, isSupabaseConfigured, supabase } from '../lib/supabase';
+import { auth, FirebaseDataService } from '../lib/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 interface AuthContextType {
   admin: AdminProfile | null;
@@ -20,87 +21,48 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     let mounted = true;
 
-    async function initAuth() {
-      try {
-        if (isSupabaseConfigured && supabase) {
-          const { data: { session } } = await supabase.auth.getSession();
-          if (session?.user && mounted) {
-            const { data: profile } = await supabase
-              .from('admin_profiles')
-              .select('*')
-              .eq('auth_user_id', session.user.id)
-              .single();
-
-            if (profile) {
-              setAdmin(profile as AdminProfile);
-            } else {
-              setAdmin({
-                id: session.user.id,
-                auth_user_id: session.user.id,
-                username: session.user.email?.split('@')[0] || 'admin',
-                role: 'admin',
-                must_change_password: false,
-                created_at: new Date().toISOString(),
-              });
-            }
-          }
-        } else {
-          // Check local mock storage
-          const localAdmin = DataService.getCurrentLocalAdmin();
-          if (localAdmin && mounted) {
-            setAdmin(localAdmin);
-          }
+    // Listen to real-time Firebase Auth state
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user && mounted) {
+        try {
+          const profile = await FirebaseDataService.getCurrentAdminProfile(user);
+          setAdmin(profile);
+        } catch (err) {
+          console.error('Error fetching admin profile from Firebase:', err);
+          setAdmin({
+            id: user.uid,
+            auth_user_id: user.uid,
+            username: user.email?.split('@')[0] || 'admin',
+            role: 'admin',
+            must_change_password: false,
+            created_at: new Date().toISOString(),
+          });
         }
-      } catch (err) {
-        console.error('Error during auth init:', err);
-      } finally {
-        if (mounted) setLoading(false);
+      } else if (mounted) {
+        setAdmin(null);
       }
-    }
-
-    initAuth();
-
-    // Listen to Supabase auth state if configured
-    let subscription: { unsubscribe: () => void } | null = null;
-    const client = supabase;
-    if (isSupabaseConfigured && client) {
-      const { data } = client.auth.onAuthStateChange(async (_event, session) => {
-        if (session?.user) {
-          const { data: profile } = await client
-            .from('admin_profiles')
-            .select('*')
-            .eq('auth_user_id', session.user.id)
-            .single();
-
-          if (profile) {
-            setAdmin(profile as AdminProfile);
-          }
-        } else {
-          setAdmin(null);
-        }
-      });
-      subscription = data.subscription;
-    }
+      if (mounted) setLoading(false);
+    });
 
     return () => {
       mounted = false;
-      if (subscription) subscription.unsubscribe();
+      unsubscribe();
     };
   }, []);
 
   const signIn = async (username: string, pass: string) => {
-    const profile = await DataService.signIn(username, pass);
+    const profile = await FirebaseDataService.signIn(username, pass);
     setAdmin(profile);
   };
 
   const signOut = async () => {
-    await DataService.signOut();
+    await FirebaseDataService.signOut();
     setAdmin(null);
   };
 
   const changePassword = async (newPass: string): Promise<boolean> => {
     if (!admin) return false;
-    const success = await DataService.changePassword(admin.username, newPass);
+    const success = await FirebaseDataService.changePassword(newPass);
     if (success) {
       setAdmin((prev) => (prev ? { ...prev, must_change_password: false } : null));
     }
