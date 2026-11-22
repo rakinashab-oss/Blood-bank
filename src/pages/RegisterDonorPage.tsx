@@ -100,10 +100,15 @@ export const RegisterDonorPage: React.FC = () => {
       setIsSuccess(true);
     } catch (err: unknown) {
       const errorObj = err as Error;
-      if (errorObj?.message === 'DUPLICATE_PHONE') {
+      const msg = errorObj?.message || '';
+      if (msg === 'DUPLICATE_PHONE') {
         setError(t.valDuplicatePhone);
+      } else if (msg.toLowerCase().includes('permission') || msg.toLowerCase().includes('insufficient')) {
+        setError(lang === 'bn' 
+          ? 'ডাটাবেজ পারমিশন সংক্রান্ত সমস্যা: ফায়ারবেস কনসোলে (Firebase Console -> Firestore -> Rules) পাবলিক রেজিস্ট্রেশনের রুলস পাবলিশ করা প্রয়োজন।'
+          : 'Database permission error: Firestore Security Rules need to be published in Firebase Console to allow public registrations.');
       } else {
-        setError(errorObj?.message || t.toastError);
+        setError(msg || t.toastError);
       }
     } finally {
       setIsSubmitting(false);

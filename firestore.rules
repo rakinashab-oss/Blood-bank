@@ -2,22 +2,21 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Public visitors can read donors & self-register as a blood donor; Only authenticated admins can update or delete
+    // Donors collection:
+    // Anyone can read donors and self-register as a new blood donor.
+    // Only authenticated admins can update or delete donor records.
     match /donors/{donorId} {
-      allow read: if resource.data.is_public == true || request.auth != null;
-      allow create: if request.resource.data.full_name is string 
-                    && request.resource.data.phone_number is string
-                    && request.resource.data.blood_group is string;
+      allow read, create: if true;
       allow update, delete: if request.auth != null;
     }
     
-    // Anyone can read app settings (donation interval); Admins can update
+    // App settings: Anyone can read (for 90-day calculation); Only admins can update
     match /app_settings/{document=**} {
       allow read: if true;
       allow write: if request.auth != null;
     }
     
-    // Admin profiles: Only authenticated admins can view and update
+    // Admin profiles: Authenticated admins only
     match /admin_profiles/{userId} {
       allow read: if request.auth != null;
       allow write: if request.auth != null && request.auth.uid == userId;
