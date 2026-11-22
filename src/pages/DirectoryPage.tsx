@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { DataService } from '../lib/supabase';
 import { BloodGroup, DonorWithAvailability } from '../types';
@@ -14,7 +14,8 @@ import {
   CheckCircle2, 
   Clock, 
   Info,
-  Loader2
+  Loader2,
+  Heart
 } from 'lucide-react';
 
 const BLOOD_GROUPS: BloodGroup[] = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
@@ -115,13 +116,23 @@ export const DirectoryPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
       
       {/* Directory Page Header */}
-      <div className="space-y-2">
-        <h1 className="text-2xl sm:text-4xl font-black text-charcoal-900 tracking-tight">
-          {t.directoryTitle}
-        </h1>
-        <p className="text-sm sm:text-base text-charcoal-600 max-w-2xl">
-          {t.directorySubtitle}
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="space-y-1">
+          <h1 className="text-2xl sm:text-4xl font-black text-charcoal-900 tracking-tight">
+            {t.directoryTitle}
+          </h1>
+          <p className="text-sm sm:text-base text-charcoal-600 max-w-2xl">
+            {t.directorySubtitle}
+          </p>
+        </div>
+
+        <Link
+          to="/register"
+          className="self-start sm:self-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blood-600 hover:bg-blood-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-blood-700/20 active:scale-95 transition-all"
+        >
+          <Heart className="w-4 h-4 fill-current text-white" />
+          <span>{t.btnBeDonor}</span>
+        </Link>
       </div>
 
       {/* Medical Disclaimer Banner */}

@@ -92,6 +92,14 @@ export const HomePage: React.FC = () => {
               </Link>
 
               <Link
+                to="/register"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-blood-50 text-blood-700 font-bold text-sm sm:text-base border border-blood-300 shadow-xs transition-colors"
+              >
+                <Heart className="w-5 h-5 fill-current text-blood-700" />
+                <span>{t.btnBeDonor}</span>
+              </Link>
+
+              <Link
                 to="/directory"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-charcoal-50 text-charcoal-800 font-bold text-sm sm:text-base border border-charcoal-300 shadow-xs transition-colors"
               >
@@ -261,17 +269,18 @@ export const HomePage: React.FC = () => {
             </p>
             <div className="pt-2 flex flex-col sm:flex-row gap-3">
               <Link
-                to="/report"
+                to="/register"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-blood-50 text-blood-800 font-bold text-sm shadow-md transition-colors"
               >
-                <span>{t.ctaButton}</span>
+                <Heart className="w-4 h-4 fill-blood-700 text-blood-700" />
+                <span>{t.btnBeDonor}</span>
                 <ArrowRight className="w-4 h-4 text-blood-800" />
               </Link>
               <Link
-                to="/awareness"
+                to="/directory"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blood-800/80 hover:bg-blood-800 text-white font-semibold text-sm border border-blood-600 transition-colors"
               >
-                <span>{t.navAwareness}</span>
+                <span>{t.btnViewDirectory}</span>
               </Link>
             </div>
           </div>

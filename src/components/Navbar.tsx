@@ -111,8 +111,17 @@ export const Navbar: React.FC = () => {
             </Link>
           </nav>
 
-          {/* Right Action Bar (Language Switcher + Admin Button) */}
+          {/* Right Action Bar (Language Switcher + Join as Donor + Admin Button) */}
           <div className="hidden lg:flex items-center gap-3">
+            {/* Join as Donor Button */}
+            <Link
+              to="/register"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blood-600 hover:bg-blood-700 text-white font-bold text-xs shadow-xs active:scale-95 transition-all"
+            >
+              <Heart className="w-3.5 h-3.5 fill-current" />
+              <span>{t.navRegisterDonor}</span>
+            </Link>
+
             {/* Language Switcher */}
             <button
               onClick={toggleLang}
@@ -226,6 +235,17 @@ export const Navbar: React.FC = () => {
           >
             <PhoneCall className="w-4 h-4 text-blood-700" />
             <span>{t.navReport}</span>
+          </Link>
+
+          <Link
+            to="/register"
+            onClick={closeMenu}
+            className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-base font-bold ${
+              isActive('/register') ? 'text-white bg-blood-600' : 'text-blood-700 bg-blood-50 hover:bg-blood-100'
+            }`}
+          >
+            <Heart className={`w-4 h-4 ${isActive('/register') ? 'fill-white text-white' : 'fill-blood-700 text-blood-700'}`} />
+            <span>{t.navRegisterDonor}</span>
           </Link>
 
           <div className="pt-3 border-t border-charcoal-200">

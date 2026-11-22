@@ -16,6 +16,7 @@ export const translations = {
     navBloodGroups: 'Blood Groups',
     navAwareness: 'Awareness',
     navReport: 'Report a Problem',
+    navRegisterDonor: 'Join as Donor',
     navAdmin: 'Admin Portal',
     navDashboard: 'Dashboard',
     navSettings: 'Settings',
@@ -28,6 +29,16 @@ export const translations = {
     btnFindDonors: 'Find Blood Donors',
     btnViewDirectory: 'View Donor Directory',
     btnBeDonor: 'Join as a Donor',
+
+    // Self Registration
+    registerPageTitle: 'Blood Donor Registration',
+    registerPageSubtitle: 'List yourself as a voluntary blood donor and be someone’s lifesaver during an emergency.',
+    neverDonatedCheckbox: 'I have not donated blood in the last 90 days (or never donated before)',
+    donorConsent: 'I willingly consent to display my name, blood group, and mobile number in the public directory so patients in medical emergency can contact me directly.',
+    btnSubmitRegistration: 'Register as a Blood Donor',
+    registrationSuccessTitle: 'Thank You for Registering!',
+    registrationSuccessMsg: 'Your information has been successfully added to the Blood Lagbe directory. You are now part of a life-saving humanitarian network.',
+    viewMyListing: 'View Donor Directory',
 
     // Live Statistics
     statsTitle: 'Live Donor Statistics',
@@ -242,6 +253,7 @@ export const translations = {
     navBloodGroups: 'রক্তের গ্রুপ',
     navAwareness: 'রক্তদান সচেতনতা',
     navReport: 'সমস্যা জানান',
+    navRegisterDonor: 'রক্তদাতা হোন',
     navAdmin: 'অ্যাডমিন পোর্টাল',
     navDashboard: 'ড্যাশবোর্ড',
     navSettings: 'সেটিংস',
@@ -254,6 +266,16 @@ export const translations = {
     btnFindDonors: 'রক্তদাতা খুঁজুন',
     btnViewDirectory: 'সম্পূর্ণ তালিকা দেখুন',
     btnBeDonor: 'রক্তদাতা হিসেবে যুক্ত হোন',
+
+    // Self Registration
+    registerPageTitle: 'রক্তদাতা হিসেবে নিবন্ধন',
+    registerPageSubtitle: 'স্বেচ্ছায় রক্তদাতা হিসেবে যুক্ত হোন এবং জরুরি মুহূর্তে মানুষের জীবন বাঁচাতে এগিয়ে আসুন।',
+    neverDonatedCheckbox: 'আমি গত ৯০ দিনে রক্ত দেইনি (অথবা এই প্রথম রক্তদান করব)',
+    donorConsent: 'জরুরি প্রয়োজনে রোগীরা যাতে সরাসরি আমার সাথে যোগাযোগ করতে পারেন, সেজন্য পাবলিক ডিরেক্টরিতে আমার নাম, রক্তের গ্রুপ ও ফোন নম্বর প্রদর্শনে সম্মতি দিচ্ছি।',
+    btnSubmitRegistration: 'রক্তদাতা হিসেবে যুক্ত হোন',
+    registrationSuccessTitle: 'অভিনন্দন ও ধন্যবাদ!',
+    registrationSuccessMsg: 'আপনার তথ্য সফলভাবে ব্লাড লাগবে ডিরেক্টরিতে যুক্ত হয়েছে। জরুরি মুহূর্তে আপনার এই মানবিক উদ্যোগ মানুষের জীবন বাঁচাবে।',
+    viewMyListing: 'ডোনার তালিকা দেখুন',
 
     // Live Statistics
     statsTitle: 'লাইভ ডোনার পরিসংখ্যান',
